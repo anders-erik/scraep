@@ -1,0 +1,38 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "test": "tsc && cd dist/tests && node --test",
+    "start": "node dist/server.js",
+    "prod": "tsc && node dist/server.js",
+    "install-data": "mkdir -p /ae/prod/webscript/ && cp -r ./data/. /ae/prod/webscript",
+    "db-init": "sqlite3 ./data/new.db < ./data/schema.sql",
+    "install-sqlite-db": "mkdir -p /ae/prod/webscript/ && cp data/webscript.sqlite /ae/prod/webscript/webscript.sqlite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "better-sqlite3": "^12.4.6",
+    "express": "^5.1.0",
+    "tsx": "^4.20.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.15",
+    "typescript": "^5.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anders-erik/todae.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anders-erik/todae/issues"
+  },
+  "homepage": "https://github.com/anders-erik/todae#readme"
+}

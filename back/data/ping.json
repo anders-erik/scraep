@@ -1,0 +1,8 @@
+[
+    {
+        "name": "ping",
+        "dir": "data",
+        "description": "A simple ping web script that returns 'pong'.",
+        "command": "echo \"pong\""
+    }
+]

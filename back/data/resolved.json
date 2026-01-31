@@ -1,0 +1,8 @@
+[
+    {
+        "name": "is-active",
+        "dir": "data",
+        "description": "checks if systemd-resolved is active",
+        "command": "systemctl is-active systemd-resolved"
+    }
+]
