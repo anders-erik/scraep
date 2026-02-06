@@ -7,7 +7,7 @@ import path from 'node:path';
 
 import type { ScriptSetting } from '../types/scriptSetting';
 
-const db_path = '/ae/prod/webscript/webscript.sqlite';
+const db_path = '/ae/prod/scraep/scraep.sqlite';
 // let DB: any;
 let DB: Database.Database;
 // const db = new Database(db_path, {});

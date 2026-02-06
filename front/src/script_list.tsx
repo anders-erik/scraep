@@ -1,19 +1,34 @@
 import { useState, useEffect } from 'react'
 
+import Script from './script.tsx'
+
+import './script_list.css'
+import './App.css'
 
 function ScriptList() {
 
-  const [scriptnames, setScriptnames] = useState([] as string[])
+  const [script_objects, set_script_objects] = useState([] as any[])
+
+
+  const run_on_click_fn = () => 
+  {
+    console.log('clicked a script name');
+  }
 
   useEffect(() => {
-    setScriptnames(['script1', 'script2', 'script3']);
+    set_script_objects(['script1', 'script2', 'script3']);
 
     const scripts_res: any = fetch('/api/script').then((res) => 
     {
       res.json().then((data: any) => {
-        console.log(data);
-        const name_array: string[] = data.map((script: any) => script.name);
-        setScriptnames(name_array);
+        // console.log(data);
+        // loop data
+        for (let i = 0; i < data.length; i++) {
+          console.log(data[i]);
+        }
+
+        // const name_array: string[] = data.map((script: any) => script.name);
+        set_script_objects(data);
       });
     });
 
@@ -35,20 +50,28 @@ function ScriptList() {
   // Return a list of strings in divs
   return (
     <>
-      <div>
+      <div className="script_list no-scoll">
         <h2>Scripts</h2>
         <div id='item-list'>
-          {scriptnames.map((name, index) => (
+          {script_objects.map((script_object, index) => (
             <div 
               key={index} 
               className="script-name" 
-              onClick={() => 
-                console.log(name)
+              onClick=
+              {() => 
+                console.log(script_object.name)
               }>
-              {name}
+              {/* {script_object} */}
+              <Script script_object={script_object}/>
             </div>
+            // <div>script</div>
+            // add a button to run the script
+            // <Script />
           ))}
+          {/* // add script component with info and run button */}
+          {/* <Script /> */}
         </div>
+        
       </div>
     </>
   )

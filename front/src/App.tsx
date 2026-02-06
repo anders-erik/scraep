@@ -18,10 +18,11 @@ function App() {
   // Return a list of strings in divs
   return (
     <>
-      <div>
-        <h1>Todæ</h1>
-        <h1>Ræter</h1>
-        <h1>Wæbscrîpt</h1>
+      <div className="no-scroll">
+        {/* <h1>Todæ</h1>
+        <h1>Ræter</h1> */}
+        {/* <h1>Wæbscrîpt</h1> */}
+        <h1>Scræp</h1>
       </div>
 
       <ScriptList />
