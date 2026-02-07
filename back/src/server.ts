@@ -48,12 +48,28 @@ app.use((err: any, req: any, res: any, next: any) => {
 app.get('/run/:name', async (req, res) =>
 {
     const script_name = req.params.name as string;
+    // get query param sudo
+    
     
     const script_setting: ScriptSetting = DB.get_script(script_name);
 
-    const output: string = await Runner.run(script_setting);
+    // Make sure sudo password is provided if script requires sudo
+    const sudo_password = req.query.password as string;
+    if(script_setting.sudo && !sudo_password)
+    {
+        console.log("no sudo password provided");
+        res.json({ message: "no sudo password provided" });
+        return;
+    }
 
-    res.json({ message: output });
+    let script_output: string = "";
+
+    if(script_setting.sudo)
+        script_output = await Runner.run_sudo(script_setting, sudo_password);
+    else
+        script_output = await Runner.run(script_setting);
+
+    res.json({ message: script_output });
 });
 
 /** Query script-tabe without filtering (i.e. all scripts) */

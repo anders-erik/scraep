@@ -4,6 +4,7 @@ import { useState } from 'react'
 import './App.css'
 
 import './script_list.tsx'
+import Sudo from './sudo.tsx'
 import ScriptList from './script_list.tsx'
 
 function App() {
@@ -18,14 +19,15 @@ function App() {
   // Return a list of strings in divs
   return (
     <>
-      <div className="no-scroll">
+        <h1>Scræp</h1>
+      <div id="scraep-main" className="no-scroll">
         {/* <h1>Todæ</h1>
         <h1>Ræter</h1> */}
         {/* <h1>Wæbscrîpt</h1> */}
-        <h1>Scræp</h1>
-      </div>
 
-      <ScriptList />
+        <ScriptList />
+        <Sudo />
+      </div>
     </>
   )
 }

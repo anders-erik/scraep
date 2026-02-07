@@ -4,4 +4,5 @@ export type ScriptSetting = {
     description: string;
     content: string;
     verb: string;
+    sudo: boolean;
 };

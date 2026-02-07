@@ -7,8 +7,27 @@
   margin: 5px;
 }
 
+.flex-row
+{
+  display: flex;
+  flex-direction: row;
+}
+
 
 .name-label
 {
   background-color: bisque;
+}
+
+.run-btn
+{
+  background-color: lightgreen;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.w80
+{
+  width: 80%;
 }

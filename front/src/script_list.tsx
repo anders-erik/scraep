@@ -56,7 +56,7 @@ function ScriptList() {
           {script_objects.map((script_object, index) => (
             <div 
               key={index} 
-              className="script-name" 
+              // className="script-name" 
               onClick=
               {() => 
                 console.log(script_object.name)

@@ -11,16 +11,26 @@ function Script(prop: any) {
 
   return (
     <>
-      <div className="script">
-        <div className="name-label">Name: {prop.script_object.name}</div>
+        <div className="script flex-row" data-script={JSON.stringify(prop.script_object)} title={prop.script_object.description}>
+        <div className="name-label w80">{prop.script_object.name}</div>
         <br></br>
-        <div>Description : {prop.script_object.description}</div>
-        <div
+        {/* <div>Description : {prop.script_object.description}</div> */}
+        <div className="run-btn"
           onClick=
             {() => 
             {
-              console.log("running ", prop.script_object.name)
-              fetch("/api/run/" + prop.script_object.name)
+              let run_url = "/api/run/" + prop.script_object.name;
+
+              // if script requires sudo, pull password from sudo component and include as query param
+              if(prop.script_object.sudo)
+              {
+                const password_input = document.getElementById("password-input") as HTMLInputElement;
+                const password = password_input.value;
+                console.log("sudo password: ", password);
+                run_url += "?password=" + encodeURIComponent(password);
+              }
+
+              fetch(run_url)
               .then((res) => res.json())
               .then((data) => {
                 console.log(data);
