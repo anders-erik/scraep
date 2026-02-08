@@ -18,24 +18,10 @@ import { CurrentScriptProvider } from './contexts/current-script-ctx.tsx';
 
 function App()
 {
-  const [count, setCount] = useState(0)
-
-  
-
-  // const [scriptnames, setScriptnames] = useState([] as string[])
-
-  // setScriptnames(['script one', 'script two', 'script three'])
-
-  // let scriptnames: string[] = ['script one', 'script two', 'script three']
-
-  // Return a list of strings in divs
   return (
     <>
-        <h1>Scræp</h1>
+      <p>Scræp</p>
       <div id="scraep-main" className="no-scroll">
-        {/* <h1>Todæ</h1>
-        <h1>Ræter</h1> */}
-        {/* <h1>Wæbscrîpt</h1> */}
         <CurrentScriptProvider>
           <ScriptList />
           <Search />

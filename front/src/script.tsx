@@ -4,14 +4,30 @@ import './script.css'
 
 import type { ScriptType } from '../../types/script.ts'
 
+import type { CurrentScriptContextType } from './contexts/current-script-ctx.tsx';
+
+import {  current_script_context, 
+          useCurrentScript,
+          CurrentScriptProvider } from './contexts/current-script-ctx.tsx';
+
 
 function Script(prop: any) {
 
   const [script, setScript] = useState([] as ScriptType[])
 
+  const current_script_ctxt: CurrentScriptContextType = useCurrentScript();
+
   return (
     <>
-        <div className="script flex-row" data-script={JSON.stringify(prop.script_object)} title={prop.script_object.description}>
+        <div 
+          className="script flex-row" 
+          data-script={JSON.stringify(prop.script_object)} 
+          title={prop.script_object.description}
+          onClick=
+              {() => {
+                console.log(prop.script_object.name);
+                current_script_ctxt.setter(prop.script_object);
+              }}>
         <div className="name-label w80">{prop.script_object.name}</div>
         <br></br>
         {/* <div>Description : {prop.script_object.description}</div> */}

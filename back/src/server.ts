@@ -80,6 +80,21 @@ app.get('/script', async (req, res) =>
     res.status(200).json(available_scripts);
 });
 
+app.put('/script/:name', async (req, res) =>
+{
+    DB.update_script(req.body as ScriptSetting);
+
+    res.status(200).json({status: "success"});
+});
+
+app.post('/script' , async (req, res) =>
+{
+    console.log("Backend received request to add new script");
+    const script_name = DB.add_empty_script();
+    console.log("New script name: ", script_name);
+    res.status(200).json({status: "success"});
+});
+
 
 
 

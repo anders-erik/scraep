@@ -1,0 +1,23 @@
+
+.crud-field
+{
+    width: 98%;
+    margin: 1px;
+    padding: 1px;
+}
+
+.crud-field-name
+{
+    background-color: rgb(203, 177, 143);
+    width: 20%;
+    display: inline-block;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 1);
+}
+
+.crud-field-input
+{
+    background-color: rgb(194, 126, 43);
+    width: 75%;
+    display: inline-block;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 1);
+}
