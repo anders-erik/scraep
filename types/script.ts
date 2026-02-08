@@ -8,3 +8,11 @@ export type ScriptType =
     verb: string;
     sudo: boolean;
 }
+
+export let default_script = {
+    name: "",
+    description: "",
+    content: "",
+    verb: "",
+    sudo: false
+} as ScriptType;

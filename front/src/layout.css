@@ -1,0 +1,44 @@
+
+/* Grid layout */
+#scraep-main
+{
+  height: 80vh;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 3px;
+  grid-row-gap: 3px;
+
+  border: 1px solid black;
+}
+
+.script_list
+{
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 1);
+  padding: 5px;
+  overflow-y: scroll;
+  height: 100%;
+
+  grid-area: 1 / 1 / 6 / 2;
+}
+
+.search
+{
+  background-color: rgb(29, 117, 117);
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.current-script
+{
+    background-color: rgb(117, 29, 29);
+    grid-area: 3 / 2 / 4 / 3;
+}
+
+
+.sudo 
+{
+  background-color: aqua;
+  grid-area: 6 / 2 / 7 / 3;
+}
+

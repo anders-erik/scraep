@@ -2,12 +2,21 @@ import { useState, useEffect } from 'react'
 
 import Script from './script.tsx'
 
-import './script_list.css'
 import './App.css'
+
+
+import type { CurrentScriptContextType } from './contexts/current-script-ctx.tsx';
+
+import {  current_script_context, 
+          useCurrentScript,
+          CurrentScriptProvider } from './contexts/current-script-ctx.tsx';
 
 function ScriptList() {
 
   const [script_objects, set_script_objects] = useState([] as any[])
+
+
+  const current_script_ctxt: CurrentScriptContextType = useCurrentScript();
 
 
   const run_on_click_fn = () => 
@@ -58,9 +67,10 @@ function ScriptList() {
               key={index} 
               // className="script-name" 
               onClick=
-              {() => 
-                console.log(script_object.name)
-              }>
+              {() => {
+                console.log(script_object.name);
+                current_script_ctxt.setter(script_object);
+              }}>
               {/* {script_object} */}
               <Script script_object={script_object}/>
             </div>
