@@ -33,6 +33,10 @@ Start Frontend dev server
 cd fronts && npm run dev
 ```
 
+Create new DB
+```
+
+```
 
 
 ## Database versions
